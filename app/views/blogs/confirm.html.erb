@@ -1,0 +1,16 @@
+<h3>Voulez vous vraiment faire ça ?</h3>
+
+
+<%= form_with(model: @blog, local: true ,url: confirm_blogs_path ) do |form| %>
+
+
+<%= form.hidden_field :title %>
+
+  <%= form.hidden_field :content %>
+
+  <p>tilre:<%= @blog.title %></p>
+
+  <p>Content:<%= @blog.content %></p>
+  
+  <%= form.submit  "confirmer" %>
+<% end %>

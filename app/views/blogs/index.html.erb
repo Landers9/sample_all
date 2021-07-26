@@ -1,0 +1,21 @@
+<h1>Liste des blogs</h1>
+
+<p><%= notice %></p>
+
+<% @blogs.each do |blog| %>
+
+  <h2><%= blog.title %></h2>
+
+  <h2><%= blog.content %></h2>
+
+  <%= link_to 'Vérifiez les détails', blog_path(blog.id) %>
+
+  <a href="<%= blog_path(blog.id) %>"> lire la suite  </a>
+  <a href="<%= edit_blog_path(blog.id) %>">Editer</a>
+  <a href="<%= blog_path(blog.id) %>" data-confirm="etes vous sur ?" data-method="DELETE">Supprimer</a>
+
+<% end %>
+
+<br><br>
+
+<a href="<%= new_blog_path %>">Creer un blog </a>

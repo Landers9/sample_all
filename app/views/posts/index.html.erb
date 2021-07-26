@@ -1,0 +1,19 @@
+<h1>Les articles</h1>
+
+<% @posts.each do |post| %>
+
+  <h2><%= post.name %></h2>
+  <h2><%= post.content %></h2>
+
+  <a href="<%= post_path(post.id) %>"> lire la suite  </a>
+  <a href="<%= edit_post_path(post.id) %>">Editer</a>
+  <a href="<%= post_path(post.id) %>" data-confirm="etes vous sur ?" data-method="DELETE">Supprimer</a>
+
+<% end %>
+<br><br>
+
+<a href="<%= new_post_path %>">Creer un article </a>
+
+<br><br>
+
+<a href="<%= root_path %>">aller au home</a>
