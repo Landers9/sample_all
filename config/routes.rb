@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  #get '/blogs', to: 'blogs#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  resources :feeds
+  resources :contacts
   root to: 'pages#home'
   get '/salut(/:name)', to: 'pages#salut', as:'salut'
 
@@ -13,4 +12,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users, only: [:new, :create, :show]
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  resources :favorites, only: [:create, :destroy]
+
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if
+  Rails.env.development?
 end
